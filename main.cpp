@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 
 using namespace std;
-double my_pow(double a, unsigned int b) {
+double my_pow(double a, int b) {
     double u = 1;
     for (unsigned int i = 0; i < b; i++) {
         u = u * a;
@@ -12,8 +12,12 @@ double my_pow(double a, unsigned int b) {
 int main()
 {
     double chislo;
-    unsigned int stepen;
+    int stepen;
     cin >> chislo >> stepen;
-    cout<< my_pow(chislo, stepen);
+    if (stepen < 0) {
+        chislo = 1 / chislo;
+        stepen = stepen * -1;
+    }
+    cout << my_pow(chislo, stepen);
     return 0;
 }
